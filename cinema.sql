@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `cinema`.`Cliente` (
   `idCliente` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(30) NOT NULL,
-  `cpf` INT(11) NOT NULL,
+  `cpf` VARCHAR(11) NOT NULL,
   `metodoPagamento` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`))
 ENGINE = InnoDB;
@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `cinema`.`Trailer` (
   `idTrailer` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(40) NOT NULL,
+  `nome` VARCHAR(70) NOT NULL,
   `duracao` INT(2) NOT NULL,
   PRIMARY KEY (`idTrailer`))
 ENGINE = InnoDB;

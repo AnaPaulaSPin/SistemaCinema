@@ -1,7 +1,7 @@
 -- Criar 15 registros para cada tabela
 
 /*Genero */
-INSERT INTO genero (idgenero, nome) VALUES
+INSERT INTO genero (idGenero, nome) VALUES
 (1,'Drama'),
 (2,'Comédia'),
 (3,'Aventura'),
@@ -39,7 +39,7 @@ INSERT INTO sala (idsala, nome, tipo) VALUES
 
 
 /*Assento*/
-INSERT INTO assento (idassento, nome, Sala_idSala) VALUES
+INSERT INTO assento (idAssento, nome, idSala) VALUES
 (1, 'A1',1),
 (2, 'A2',1),
 (3, 'A3',1),
@@ -57,7 +57,7 @@ INSERT INTO assento (idassento, nome, Sala_idSala) VALUES
 (15, 'C5',3);
 
 /* Filme*/
-INSERT INTO filme (idfilme, nome, sinopse, duracao, classificacaoIndicativa, Genero_idGenero) Values
+INSERT INTO filme (idfilme, nome, sinopse, duracao, classificacaoIndicativa, idGenero) Values
 (1, 'Vingadores: Ultimato', 'Os heróis se unem em uma batalha épica para derrotar Thanos.', 181, 12, 15),
 (2, 'Rei Leão', 'A história do jovem leão Simba.', 118, 0, 9),
 (3, 'Frozen II', 'Anna e Elsa descobrem a origem dos poderes da Elsa.', 103, 0, 9),
@@ -90,7 +90,8 @@ INSERT INTO cliente (idCliente, nome, cpf, metodoPagamento) VALUES
 (12, 'Juliana Ribeiro Souza', '88990011223', 'Credito'),
 (13, 'Felipe dos Santos Lima', '11224466880', 'Débito'),
 (14,'Patrícia Gomes Ferreira', '99001122334', 'Pix'),
-(15, 'Vinícius Andrade Souza', '22334455667', 'Pix');
+(15, 'Vinícius Andrade Souza', '22334455667', 'Pix'),
+(16, 'Manoela Pereira', '22334455667', 'Pix');
 
 /*Trailer */
 INSERT INTO trailer (idTrailer, nome, duracao) VALUES
@@ -111,7 +112,7 @@ INSERT INTO trailer (idTrailer, nome, duracao) VALUES
 (15,'A Culpa é das Estrelas - Trailer Oficial', 1);
 
 /* Sessao*/
-INSERT INTO sessao (idSessao, formato, idioma, Filme_idFilme, Sala_idSala, data, horario) VALUES 
+INSERT INTO sessao (idSessao, formato, idioma, idFilme, idSala, data, horario) VALUES 
 (1, '2D', 'Dublado', 1, 1, '2026-01-30', '14:00'),
 (2, '3D', 'Legendado', 1, 1, '2026-01-30', '16:30'),
 (3, '2D', 'Dublado', 1, 1, '2026-01-30', '20:00'),
@@ -129,7 +130,7 @@ INSERT INTO sessao (idSessao, formato, idioma, Filme_idFilme, Sala_idSala, data,
 (15, '2D', 'Dublado', 15, 15, '2025-01-10', '16:45');
 
 /*Sessao_has_Assento */
-INSERT INTO Sessao_has_assento (Sessao_idSessao, Assento_idAssento, ocupado) VALUES
+INSERT INTO Sessao_has_assento (idSessao, idAssento, ocupado) VALUES
 -- Sessão 1 (assento 1 - 5)
 (1, 1, 1),
 (1, 2, 1),
@@ -163,8 +164,7 @@ INSERT INTO Sessao_has_assento (Sessao_idSessao, Assento_idAssento, ocupado) VAL
 (5, 5, 0);
 
  /*Ingresso */
-INSERT INTO ingresso (idIngresso, valor, tipo, 
-Cliente_idCliente, Sessao_has_Assento_Sessao_idSessao, Sessao_has_Assento_Assento_idAssento ) VALUES
+INSERT INTO ingresso (idIngresso, valor, tipo, idCliente, idSessao, idAssento) VALUES
 -- Sessão 1 (4 ocupados)
 (1, 30.00, 'INTEIRA', 1, 1, 1),
 (2, 30.00, 'INTEIRA', 1, 1, 2),
@@ -192,7 +192,7 @@ Cliente_idCliente, Sessao_has_Assento_Sessao_idSessao, Sessao_has_Assento_Assent
 (16, 15.00, 'MEIA', 3, 5, 1);
 
 /*Trailer_has_Sessao */
-INSERT INTO trailer_has_sessao (Trailer_idTrailer, Sessao_idSessao) VALUES
+INSERT INTO trailer_has_sessao (idTrailer, idSessao) VALUES
 (2,1),
 (3,1),
 (4,1),
